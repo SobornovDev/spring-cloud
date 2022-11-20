@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221120-create-guest-table
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: GUEST_ID
+                  type: bigint
+              - column:
+                  constraints:
+                    nullable: false
+                  name: FIRST_NAME
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: LAST_NAME
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: EMAIL_ADDRESS
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ADDRESS
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: COUNTRY
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: STATE
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PHONE_NUMBER
+                  type: varchar
+            tableName: GUEST
+  - changeSet:
+      id: 20221120-insert-guests
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - sqlFile:
+            path: changelog/sql/data.sql
