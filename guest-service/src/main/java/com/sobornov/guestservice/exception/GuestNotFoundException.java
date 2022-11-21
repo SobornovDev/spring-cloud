@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class GuestNotFoundException extends RuntimeException{
     public GuestNotFoundException(Long guestId) {
-        super(String.format("Guest with id: %snot found", guestId));
+        super(String.format("Guest with id: %s not found", guestId));
     }
 }

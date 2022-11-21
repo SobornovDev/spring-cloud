@@ -1,9 +1,9 @@
 server:
-  port: 7070
+  port: 7072
 
 spring:
   application:
-    name: guest-service
+    name: reservation-service
   jpa:
     hibernate:
       ddl-auto: none

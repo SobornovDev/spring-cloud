@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221121-create-room-table
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: ROOM_ID
+                  type: bigint
+              - column:
+                  constraints:
+                    nullable: false
+                  name: NAME
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ROOM_NUMBER
+                  type: char(2)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: BED_INFO
+                  type: char(2)
+            tableName: ROOM
+  - changeSet:
+      id: 20221121-insert-rooms
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - sqlFile:
+            path: changelog/sql/data.sql

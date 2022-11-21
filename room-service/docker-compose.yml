@@ -1,24 +1,24 @@
 version: '2'
 
 services:
-  guest-service:
-    image: 'guest-service:latest'
+  room-service:
+    image: 'room-service:latest'
     build:
       context: .
-    container_name: guest-service
+    container_name: room-service
     ports:
-      - "7070:7070"
+      - "7071:7071"
     depends_on:
       - postgres
     environment:
-      - DB_URL=jdbc:postgresql://postgres-guest:5432/postgres
+      - DB_URL=jdbc:postgresql://postgres-room:5432/postgres
       - DB_USERNAME=postgres
       - DB_PASSWORD=12345
       - DB_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
 
   postgres:
     image: 'postgres:14.3-alpine'
-    container_name: postgres-guest
+    container_name: postgres-room
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345

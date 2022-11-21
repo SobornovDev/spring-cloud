@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20221121-create-reservation-table
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: RESERVATION_ID
+                  type: bigint
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ROOM_ID
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: GUEST_ID
+                  type: varchar
+              - column:
+                  constraints:
+                    nullable: false
+                  name: RES_DATE
+                  type: date
+            tableName: RESERVATION
+  - changeSet:
+      id: 20221121-insert-reservations
+      author: vsobornov
+      objectQuotingStrategy: LEGACY
+      changes:
+        - sqlFile:
+            path: changelog/sql/data.sql
